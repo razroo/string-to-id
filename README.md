@@ -20,9 +20,9 @@ client.upsert('org-data', {
       points: [{
         id: resultId,
 //...
-```bash
-## How to install
 ```
+## How to install
+```bash
 npm install @razroo/string-to-id --save;
 ```
 
