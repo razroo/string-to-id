@@ -1,6 +1,6 @@
 # String To Id Open Source Repo
 
-Some open source vector libraries like qdrant, are limited in the sense that an ID must be an (unsigned) integer or UUID. 
+Some open source vector libraries like [qdrant](https://qdrant.tech/), are limited in the sense that an ID must be an (unsigned) integer or UUID. 
 
 This makes it very difficult to upsert to the respective vector, without first filtering for it. This method converts words deterministically via letters to numbers, so that can upsert deterministically in a setting where ID can be numbers only.
 
