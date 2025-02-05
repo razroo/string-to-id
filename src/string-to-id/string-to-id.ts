@@ -4,21 +4,20 @@
  * Numbers remain unchanged
  * Single 0 separates letters within a word
  * Double 0 separates words/segments
- * Leading 00 indicates raw numbers
- * Leading 000 indicates text/mixed content
+ * Trailing 00 indicates raw numbers
+ * Trailing 000 indicates text/mixed content
  */
 export function stringToId(segments: (string | number)[]): number {
   if (!segments.length) return 0;
 
   // Determine if we need to treat all numbers as text
   const hasText = segments.some(segment => typeof segment === 'string' && segment.length > 0);
-  const prefix = hasText ? '000' : '00';
-
+  
   const result = segments.map((segment, index) => {
     // If segment is already a number and we're not in text mode
     if (typeof segment === 'number' && !hasText) {
       const isLast = index === segments.length - 1;
-      return segment.toString() + (isLast ? '' : '00');
+      return segment.toString() + (isLast ? '00' : '00');
     }
 
     if (!segment) return '0';
@@ -40,8 +39,8 @@ export function stringToId(segments: (string | number)[]): number {
     
     // Add '00' after each segment (except last)
     const isLast = index === segments.length - 1;
-    return letterResult + (isLast ? '' : '00');
+    return letterResult + (isLast ? '000' : '00');
   }).join(''); // Join segments without separator since we handle it above
 
-  return Number(prefix + result) || 0;
+  return Number(result) || 0;
 }
