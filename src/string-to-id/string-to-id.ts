@@ -12,7 +12,7 @@ export function stringToId(segments: (string | number)[]): number {
     // If segment is already a number, pad with leading zeros
     if (typeof segment === 'number') {
       const isLast = index === segments.length - 1;
-      return '00' + segment.toString() + (isLast ? '' : '00');
+      return segment.toString() + (isLast ? '' : '00');
     }
 
     if (!segment) return '0';
@@ -26,9 +26,9 @@ export function stringToId(segments: (string | number)[]): number {
 
     const letterResult = letters.length ? letters.join('0') : '0'; // Join letters with single 0
     
-    // Add '00' before and after each segment (except last)
+    // Add '00' after each segment (except last)
     const isLast = index === segments.length - 1;
-    return '00' + letterResult + (isLast ? '' : '00');
+    return letterResult + (isLast ? '' : '00');
   }).join(''); // Join segments without separator since we handle it above
 
   return Number(result) || 0;
