@@ -1,3 +1,6 @@
+DEPRECATED WONT WORK UINT32 not large enough to make this happen. 
+
+
 # String To Id Open Source Repo
 
 Some open source vector libraries like [qdrant](https://qdrant.tech/), are limited in the sense that an ID must be an (unsigned) integer or UUID. 
