@@ -16,7 +16,7 @@ const resultId = stringToId([orgId, workspaceId, itemNumber]);
 // space between words is 00 or 000
 // all words have a trailing 00 or 000
 // Note: trailing zeros instead of leading zeros used to avoid octal zero errors
-// trailing 00 means it's numbers and stay as is(needed if id is a singular letter
+// trailing 00 means it's numbers and stay as is(needed if id is a singular letter, or if we want to keep a number to be considered as text e.g. 'v0' or 'auth0')
 // trailing 000 means it's words and idToString funcition should change to a word 
 // result = 102030002402502600012300
 // So now you would be able to do something like 
