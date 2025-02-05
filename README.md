@@ -6,7 +6,7 @@ This makes it very difficult to upsert to the respective vector, without first f
 
 ## Example
 ```
-@import {stringToId} from '@razroo/string-to-id';
+import { stringToId } from '@razroo/string-to-id';
 const orgId = 'abc; // a === 1, b === 2, c === 3
 const workspaceId = 'xyz' // x === 24, y === 25, z === 26
 const itemNumber = 123; // does not change as a number already
