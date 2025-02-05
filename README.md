@@ -5,7 +5,7 @@ Some open source vector libraries like qdrant, are limited in the sense that an 
 This makes it very difficult to upsert to the respective vector, without first filtering for it. This method converts words deterministically via letters to numbers, so that can upsert deterministically in a setting where ID can be numbers only.
 
 ## Example
-```
+```ts
 import { stringToId } from '@razroo/string-to-id';
 const orgId = 'abc; // a === 1, b === 2, c === 3
 const workspaceId = 'xyz' // x === 24, y === 25, z === 26
@@ -20,7 +20,7 @@ client.upsert('org-data', {
       points: [{
         id: resultId,
 //...
-```
+```bash
 ## How to install
 ```
 npm install @razroo/string-to-id --save;
