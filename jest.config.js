@@ -7,7 +7,8 @@ module.exports = {
   globals: { 
     'ts-jest': { 
       diagnostics: false,
-      useESM: true
+      useESM: true,
+      allowOctal: true
     } 
   },
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(t|j)s$',
