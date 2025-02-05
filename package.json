@@ -1,5 +1,5 @@
 {
-  "name": "string-to-id",
+  "name": "@razroo/string-to-id",
   "version": "1.0.0",
   "description": "StringToId",
   "main": "./lib/cjs/index.js",
