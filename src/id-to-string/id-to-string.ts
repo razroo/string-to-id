@@ -17,7 +17,7 @@ export function idToString(id: number): (string | number)[] {
         }
 
         // Convert groups of numbers back to letters
-        const letters = segment.split('0').map(num => {
+        const letters = segment.split('0').filter(Boolean).map(num => {
             const code = Number(num);
             // Convert number back to letter (1=a, 2=b, etc)
             return code > 0 && code < 27 
