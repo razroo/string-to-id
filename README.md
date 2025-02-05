@@ -13,11 +13,12 @@ const itemNumber = 123; // does not change as a number already
 
 const resultId = stringToId([orgId, workspaceId, itemNumber]);
 // space between letters is 0
-// space between words is 00
-// all words have a leading 00 or 000
-// leading 00 means it's numbers and stay as is(needed if id is a singular letter
-// leading 000 means it's words and idToString funcition should change to a word 
-// result = 10203002402502600123
+// space between words is 00 or 000
+// all words have a trailing 00 or 000
+// Note: trailing zeros instead of leading zeros used to avoid octal zero errors
+// trailing 00 means it's numbers and stay as is(needed if id is a singular letter
+// trailing 000 means it's words and idToString funcition should change to a word 
+// result = 102030002402502600012300
 // So now you would be able to do something like 
 client.upsert('org-data', {
       points: [{
