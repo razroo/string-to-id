@@ -8,10 +8,11 @@
 export function stringToId(segments: (string | number)[]): number {
   if (!segments.length) return 0;
 
-  const result = segments.map((segment) => {
-    // If segment is already a number, return it as string
+  const result = segments.map((segment, index) => {
+    // If segment is already a number, pad with leading zeros
     if (typeof segment === 'number') {
-      return segment.toString();
+      const isLast = index === segments.length - 1;
+      return '00' + segment.toString() + (isLast ? '' : '00');
     }
 
     if (!segment) return '0';
@@ -23,8 +24,12 @@ export function stringToId(segments: (string | number)[]): number {
       return position > 0 && position < 27 ? position : '';
     }).filter(Boolean); // Remove empty strings
 
-    return letters.length ? letters.join('0') : '0'; // Join letters with single 0
-  }).join('00'); // Join segments with double 0
+    const letterResult = letters.length ? letters.join('0') : '0'; // Join letters with single 0
+    
+    // Add '00' before and after each segment (except last)
+    const isLast = index === segments.length - 1;
+    return '00' + letterResult + (isLast ? '' : '00');
+  }).join(''); // Join segments without separator since we handle it above
 
   return Number(result) || 0;
 }

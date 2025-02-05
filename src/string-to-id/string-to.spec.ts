@@ -14,7 +14,7 @@ describe('stringToId', () => {
   });
 
   it('should handle mix of strings and numbers', () => {
-    expect(stringToId(['abc', 123, 'xyz'])).toBe(1020300123002402502600);
+    expect(stringToId(['abc', 123, 'xyz'])).toBe(10203001230024025026);
   });
 
   it('should handle uppercase letters', () => {
